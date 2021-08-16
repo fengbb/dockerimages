@@ -6,8 +6,8 @@ name: build and push docker image to github package
 # documentation.
 
 on:
-  #schedule:
-  #  - cron: '22 9 * * *'
+  schedule:
+    - cron: '5 * * * *'
   push:
     branches: master
     # Publish semver tags as releases.
