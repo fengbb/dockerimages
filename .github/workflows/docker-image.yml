@@ -24,7 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag fengbb/ingress-nginx/controller:v0.48.1
     - name: Log into registry ${{ env.REGISTRY }}
       if: github.event_name != 'pull_request'
       uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
@@ -38,4 +38,4 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
     - name: Build and push Docker image
-      run: docker push my-image-name:$(date +%s)
+      run: docker push fengbb/ingress-nginx/controller:v0.48.1
