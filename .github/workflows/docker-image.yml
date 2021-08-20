@@ -10,12 +10,12 @@ on:
 env:
   # Use docker.io for Docker Hub if empty
   #REGISTRY: ghcr.io
-  USER: fengbaobao
-  PASSWD: fb2911357
+  #USER: fengbaobao
+  #PASSWD: fb2911357
   # github.repository as <account>/<repo>
   #IMAGE_NAME: ${{ github.repository }}
   # Use docker.io for Docker Hub if empty
-  REGISTRY: daocloud.io
+  REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   #IMAGE_NAME: ${{ github.repository }}
 
@@ -34,11 +34,11 @@ jobs:
       uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
       with:
         registry: ${{ env.REGISTRY }}
-        username: ${{ env.USER }}
-        password: ${{ env.PASSWD }}
+        #username: ${{ env.USER }}
+        #password: ${{ env.PASSWD }}
         #registry: ${{ env.REGISTRY }}
-        #username: ${{ github.actor }}
-        #password: ${{ secrets.GITHUB_TOKEN }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Extract Docker metadata
       id: meta
       uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
